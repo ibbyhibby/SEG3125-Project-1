@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmed</title>
+    <link rel="icon" href="/assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            text-align: center;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 10px 20px;
+        }
+        .navbar .logo {
+            height: 50px;
+        }
+        .navbar .nav-links {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 15px;
+            gap: 20px;
+        }
+        .navbar .nav-links a {
+            color: black;
+            text-decoration: none;
+        }
+        .navbar .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .navbar .nav-buttons .contact {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+        .navbar .nav-buttons .book {
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            text-decoration: none;
+            border: 1px solid black;
+        }
+        .confirmation {
+            padding: 40px;
+        }
+        .confirmation .row {
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .confirmation button {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .map {
+            width: 50%;
+            margin: 0 auto;
+        }
+        footer {
+            background-color: white;
+            padding: 40px;
+            color: black;
+            text-align: center;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-content img {
+            width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: black;
+            text-decoration: none;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: black;
+            margin-bottom: 20px;
+        }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-bottom p {
+            margin: 0;
+            font-size: 10px
+        }
+        .footer-bottom-links a {
+            color: black;
+            text-decoration: none;
+            margin-left: 10px;
+            font-size: 10px
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">
+          <img class="logo" src="/assets/logo.svg" alt="Logo">
+        </a>
+        <div class="nav-links">
+          <a href="./index.html#our-team">Our Experts</a>
+          <a href="./index.html#our-story">About Us</a>
+          <a href="#services">Services</a>
+        </div>
+        <div class="nav-buttons">
+          <a class="book" href="./index.html#booking">Book An Appointment</a>
+          <a class="contact" href="./index.html#contact-us">Contact</a>
+        </div>
+      </div>
+
+      <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var formData = JSON.parse(localStorage.getItem('formData'));
+    if (formData) {
+        document.getElementById('appointmentDetails').innerHTML =
+            "We got that! Please keep the following booking information handy for when you visit us:<br><br>" +
+            '<strong>Name: ' + formData.firstName + ' ' + formData.lastName + '<br>' +
+            'Email: ' + formData.email + '<br>' +
+            'Phone: ' + formData.phone + '<br>' +
+            'Expert: ' + formData.expert + '<br>' +
+            'Date: ' + formData.date + '<br>' +
+            'Time: ' + formData.time + '<br>' +
+            'Service(s): ' + formData.services.join(', ') + '<br>' +
+            'Notes: ' + formData.notes;
+            '</strong>'
+    }
+});
+      </script>
+      
+
+      <div class="confirmation">
+        <h1 style="color: rgb(18, 175, 18);">Appointment Confirmed!</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <p id="appointmentDetails"></p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <i class="bi bi-geo-alt"></i>
+                        <h3>Location</h3>
+                        <p>150 Louis-Pasteur Private, Ottawa, ON<br>New to Ottawa? Refer to our map!</p>
+                    </div>
+                    <div class="col-md-6">
+                        <i class="bi bi-telephone"></i>
+                        <h3>Need To Reschedule?</h3>
+                        <p>Stuff happens, we get it.<br> Call us at <a href="tel:+16131234567" style="color: black;">+1 (613) 123-4567</a> to reschedule</p>
+                      </div>                      
+                      
+                </div>
+                <a href="index.html">
+                    <button class="btn btn-outline-dark">Back To Homepage</button>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.4373656585117!2d-75.68336828749396!3d45.42068413621957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce05a77c7aaaab%3A0xa2490555154bd631!2s150%20Louis-Pasteur%20Private%2C%20Ottawa%2C%20ON%20K1N%209A7!5e0!3m2!1sen!2sca!4v1686279859822!5m2!1sen!2sca" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="confirmation.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    var appointmentDetails = localStorage.getItem('appointmentDetails');
+    if (appointmentDetails) {
+        document.getElementById('appointmentDetails').textContent = appointmentDetails;
+    }
+});
+    </script>
+
+</body>
+
+<footer>
+    <div class="footer-content">
+        <img src="./assets/logo.svg" alt="Logo">
+        <div class="footer-links">
+            <a href="./index.html#services">Services</a>
+            <a href="./index.html#our-story">About Us</a>
+            <a href="./index.html#our-team">Our Experts</a>
+            <a href="./index.html#booking">Book An Appointment</a>
+            <a href="./index.html#contact-us">Contact</a>
+        </div>
+        <hr>
+        <div class="footer-bottom">
+            <p>2023. Ottawa Computers. All Rights Reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Settings</a>
+            </div>
+        </div>
+    </div>
+</footer>
+</html>
