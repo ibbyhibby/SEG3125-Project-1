@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="icon" href="./assets/favicon.png" type="image/x-icon">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Ottawa Computers</title>
+
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 10px 20px;
+        }
+        .navbar .logo {
+            height: 50px;
+        }
+        .navbar .nav-links {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 15px;
+            gap: 20px;
+        }
+        .navbar .nav-links a {
+            color: black;
+            text-decoration: none;
+        }
+        .navbar .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .navbar .nav-buttons .contact {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+        .navbar .nav-buttons .book {
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            text-decoration: none;
+            border: 1px solid black;
+        }
+        .hero {
+            background-image: url(./assets/header.webp);
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 20px;
+            color: white;
+        }
+        .hero h1 {
+            margin: 0;
+            font-size: 2em;
+            padding-left: 20px
+        }
+        .hero p {
+            margin: 0.5em 0;
+            padding-left: 20px
+        }
+        .hero .hero-buttons {
+            display: flex;
+            gap: 10px;
+            padding-left: 20px
+        }
+        .hero .hero-buttons .book {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+        .hero .hero-buttons .contact {
+            background-color: transparent;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border: 1px solid white;
+        }
+        .our-story {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 20px;
+            color: black;
+        }
+        .our-story .story-content {
+            width: 50%;
+            padding-left: 40px;
+        }
+        .our-story .story-details {
+            display: flex;
+            justify-content: space-between;
+            padding-left: 0px;
+            margin-bottom: 20px
+        }
+        .our-story .story-buttons {
+            display: flex;
+            gap: 10px;
+            padding-left: 0px
+        }
+        .our-story .story-buttons .see-experts {
+            background-color: transparent;
+            color: black;
+            padding: 10px 20px;
+            text-decoration: none;
+            border: 1px solid black;
+        }
+        .our-story .story-buttons .book {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+        .our-story .story-image {
+            width: 45%;
+            height: auto;
+        }
+        .our-team {
+            background-color: white;
+            padding: 40px;
+            color: black;
+            text-align: center;
+        }
+        .our-team h2 {
+            margin-bottom: 20px;
+        }
+        .our-team p {
+            margin-bottom: 30px;
+        }
+        .our-team .team-row {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+        .our-team .team-member {
+            width: 20%;
+            text-align: center;
+        }
+        .our-team .member-photo {
+            border-radius: 50%;
+            width: 100%;
+            height: auto;
+        }
+        .our-team .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .our-team .contact-icons img {
+            width: 20px;
+            height: 20px;
+        }
+        .services {
+            background-color: white;
+            padding: 40px;
+            color: black;
+            text-align: center;
+        }
+        .services h2 {
+            margin-bottom: 20px;
+        }
+        .services p {
+            margin-bottom: 30px;
+        }
+        .services .service-category {
+            margin-bottom: 20px;
+        }
+        .services .collapsible {
+            background-color: transparent;
+            color: black;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+        .services .content {
+            padding: 0 18px;
+            display: none; /* Hide content by default */
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: #f1f1f1;
+        }
+
+        .services table {
+            width: 100%;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .services td {
+            padding: 10px;
+        }
+
+        .services td:nth-child(1) {
+            width: 20%;
+        }
+
+        .services td:nth-child(2) {
+            width: 40%;
+        }
+
+        .services td:nth-child(3) {
+            width: 20%;
+        }
+
+        .services td:nth-child(4) {
+            width: 20%;
+        }
+        .contact-us {
+            background-color: white;
+            padding: 40px;
+            color: black;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .contact-us h2 {
+            grid-column: span 2;
+        }
+
+        .contact-us .contact-info {
+            grid-column: 1;
+        }
+
+        .contact-us .mapouter {
+            grid-column: 2;
+            height: auto;
+        }
+
+        .contact-us .gmap_canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        footer {
+            background-color: white;
+            padding: 40px;
+            color: black;
+            text-align: center;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-content img {
+            width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: black;
+            text-decoration: none;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: black;
+            margin-bottom: 20px;
+        }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-bottom p {
+            margin: 0;
+            font-size: 10px
+        }
+        .footer-bottom-links a {
+            color: black;
+            text-decoration: none;
+            margin-left: 10px;
+            font-size: 10px
+        }
+        .booking {
+            background-color: white;
+            padding: 40px;
+            color: black;
+            text-align: center;
+        }
+        .booking h2 {
+            margin-bottom: 20px;
+        }
+        .booking form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .booking .btn {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="index.html">
+        <img class="logo" src="./assets/logo.svg" alt="Logo">
+    </a>
+    <div class="nav-links">
+        <a href="#our-team">Our Experts</a>
+        <a href="#our-story">About Us</a>
+        <a href="#services">Services</a>
+    </div>
+    <div class="nav-buttons">
+        <a class="book" href="#booking">Book An Appointment</a>
+        <a class="contact" href="#contact-us">Contact</a>
+    </div>
+</div>
+
+<div class="hero">
+    <h1>Ottawa Computers</h1>
+    <p>Located in the heart of Ottawa, we're determined to get your computer up & running in no time!</p>
+    <div class="hero-buttons">
+        <a class="book" href="#booking">Book An Appointment</a>
+        <a class="contact" href="#contact-us">Contact</a>
+    </div>
+</div>
+
+<div class="our-story" id="our-story">
+    <div class="story-content">
+        <h2>Our Story</h2>
+        <p>Welcome to Ottawa Computers! We are a long-standing company nestled in the heart of Downtown Ottawa, Canada. With a rich history and years of expertise, we have been serving the community for a significant period of time.
+
+            At Ottawa Computers, we pride ourselves on providing top-notch technology solutions tailored to meet your needs. Whether you're an individual, a small business, or a larger organization, our dedicated team of professionals is here to assist you every step of the way.</p>
+        <div class="story-details">
+            <div>
+                <h3>How We Started</h3>
+                <p>As a locally-owned and operated business, we value the relationships we build with our clients. We believe in fostering a friendly and trustworthy environment, where you can rely on us for reliable advice, prompt support, and competitive pricing.</p>
+            </div>
+            <div>
+                <h3>What We Do</h3>
+                <p>Join the countless satisfied customers who have made Ottawa Computers their go-to destination for all their technology needs. Experience the excellence that comes from a company with a long-standing reputation in the Ottawa community.
+                    Contact us today or visit our location in Downtown Ottawa to discover how Ottawa Computers can empower you with reliable technology solutions that propel your success.</p>
+            </div>
+        </div>
+        <div class="story-buttons">
+            <a class="see-experts" href="#our-team">See Our Experts</a>
+            <a class="book" href="#booking">Book An Appointment</a>
+        </div>
+    </div>
+    <img class="story-image" src="./assets/hero.webp" alt="Our Story">
+</div>
+
+<div class="our-team" id="our-team">
+    <h2>Our Team</h2>
+    <p>Meet our talented experts</p>
+    <div class="team-row">
+        <!-- team member row -->
+        <div class="team-member">
+            <img class="member-photo" src="./assets/member1.webp" alt="Member Name">
+            <p>
+                <span style="font-weight: bold">Sara McLean</span>
+                <br>
+                Expert in RAM upgrade
+              </p>
+
+            <div class="contact-icons">
+                <a href="mailto:Sara@OttawaComputers.com"><i class="bi bi-envelope" style="font-size: 15px"></i></a>
+                <a href="tel:+1234567890"><i class="bi bi-telephone" style="font-size: 15px"></i></a>
+            </div>
+        </div>
+        <div class="team-member">
+            <img class="member-photo" src="./assets/member2.webp" alt="Member Name">
+            <p>
+                <span style="font-weight: bold">Abu Abdullah</span>
+                <br>
+                Expert in screen replacment
+              </p>
+            <div class="contact-icons">
+                <a href="mailto:Abu@OttawaComputers.com"><i class="bi bi-envelope" style="font-size: 15px"></i></a>
+                <a href="tel:+1234567890"><i class="bi bi-telephone" style="font-size: 15px"></i></a>
+            </div>
+        </div>
+        <div class="team-member">
+            <img class="member-photo" src="./assets/member3.webp" alt="Member Name">
+            <p>
+                <span style="font-weight: bold">Emma Pagoto</span>
+                <br>
+                Expert in virus removal
+              </p>
+            <div class="contact-icons">
+                <a href="mailto:Emma@OttawaComputers.com"><i class="bi bi-envelope" style="font-size: 15px"></i></a>
+                <a href="tel:+1234567890"><i class="bi bi-telephone" style="font-size: 15px"></i></a>
+            </div>
+        </div>
+        <div class="team-member">
+            <img class="member-photo" src="./assets/member4.webp" alt="Member Name">
+            <p>
+                <span style="font-weight: bold">Lamar Brown</span>
+                <br>
+                Expert in screen replacment
+              </p>
+            <div class="contact-icons">
+                <a href="mailto:Lemar@OttawaComputers.com"><i class="bi bi-envelope" style="font-size: 15px"></i></a>
+                <a href="tel:+1234567890"><i class="bi bi-telephone" style="font-size: 15px"></i></a>
+            </div>
+        </div>
+        <!-- End of block -->
+    </div>
+    <div class="team-row">
+        <div class="team-member">
+            <img class="member-photo" src="./assets/member5.webp" alt="Member Name">
+            <p>
+                <span style="font-weight: bold">Kai Nguyen</span>
+                <br>
+                Expert in screen replacment
+              </p>
+            <div class="contact-icons">
+                <a href="mailto:Kai@OttawaComputers.com"><i class="bi bi-envelope" style="font-size: 15px"></i></a>
+                <a href="tel:+1234567890"><i class="bi bi-telephone" style="font-size: 15px"></i></a>
+            </div>
+        </div>
+        <div class="team-member">
+            <img class="member-photo" src="./assets/member6.webp" alt="Member Name">
+            <p>
+                <span style="font-weight: bold">Lisa Johnson</span>
+                <br>
+                Expert in virus removal
+              </p>
+            <div class="contact-icons">
+                <a href="mailto:Lisa@OttawaComputers.com"><i class="bi bi-envelope" style="font-size: 15px"></i></a>
+                <a href="tel:+1234567890"><i class="bi bi-telephone" style="font-size: 15px"></i></a>
+            </div>
+        </div>
+        <div class="team-member">
+            <img class="member-photo" src="./assets/member7.webp" alt="Member Name">
+            <p>
+                <span style="font-weight: bold">Alex Smith</span>
+                <br>
+                Expert in RAM upgrade
+              </p>
+            <div class="contact-icons">
+                <a href="mailto:Alex@OttawaComputers.com"><i class="bi bi-envelope" style="font-size: 15px"></i></a>
+                <a href="tel:+1234567890"><i class="bi bi-telephone" style="font-size: 15px"></i></a>
+            </div>
+        </div>
+        <div class="team-member">
+            <img class="member-photo" src="./assets/member8.webp" alt="Member Name">
+            <p>
+                <span style="font-weight: bold">Amelia Paul</span>
+                <br>
+                Expert in virus removal
+              </p>
+            <div class="contact-icons">
+                <a href="mailto:Amelia@OttawaComputers.com"><i class="bi bi-envelope" style="font-size: 15px"></i></a>
+                <a href="tel:+1234567890"><i class="bi bi-telephone" style="font-size: 15px"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="services" id="services">
+    <h2>Services Offered</h2>
+    <p>Please see our complete list of services offered.</p>
+    <div class="service-category">
+        <button class="collapsible">Screen Replacement <span class="arrow">&#9660;</span></button>
+        <div class="content">
+            <table>
+                <tr>
+                    <th>Service</th>
+                    <th>Description</th>
+                    <th>Expert(s)</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td>Laptop Screen</td>
+                    <td>Pricing is for screens 14" & under.</td>
+                    <td>Abu, Lamar, Kai</td>
+                    <td>$170</td>
+                </tr>
+                <tr>
+                    <td>Phone Screen</td>
+                    <td>Pricing is for screens 6" & under.</td>
+                    <td>Abu, Lamar, Kai</td>
+                    <td>$80</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="service-category">
+        <button class="collapsible">Virus Removal <span class="arrow">&#9660;</span></button>
+        <div class="content">
+            <table>
+                <tr>
+                    <th>Service</th>
+                    <th>Description</th>
+                    <th>Expert(s)</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td>Windows Computer</td>
+                    <td>Price may vary upon assesment.</td>
+                    <td>Abu, Lamar, Kai</td>
+                    <td>$150</td>
+                </tr>
+                <tr>
+                    <td>Mac Computer</td>
+                    <td>Price may vary upon assesment.</td>
+                    <td>Abu, Lamar, Kai</td>
+                    <td>$200</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="service-category">
+        <button class="collapsible">RAM Upgrade <span class="arrow">&#9660;</span></button>
+        <div class="content">
+            <table>
+                <tr>
+                    <th>Service</th>
+                    <th>Description</th>
+                    <th>Expert(s)</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td>16 GB</td>
+                    <td>Make your computer faster with more RAM.</td>
+                    <td>Abu, Lamar, Kai</td>
+                    <td>$70</td>
+                </tr>
+                <tr>
+                    <td>32 GB</td>
+                    <td>Make your computer faster with more RAM.</td>
+                    <td>Abu, Lamar, Kai</td>
+                    <td>$120</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+        // Trigger the click event to open the collapsible section by default
+        coll[i].click();
+    }
+</script>
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            var arrow = this.querySelector(".arrow");
+            if (content.style.maxHeight){
+                content.style.maxHeight = null;
+                arrow.innerHTML = "&#9660;"; // Down arrow
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                arrow.innerHTML = "&#9650;"; // Up arrow
+            } 
+        });
+    }
+</script>
+
+<div class="booking" id="booking">
+    <h2>Book An Appointment</h2>
+    <form id="bookingForm">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="phone">Phone Number</label>
+                <input type="tel" class="form-control" id="phone">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="expert">Choose one of our talented experts</label>
+            <select class="form-control" id="expert">
+                <option>Sara McLean</option>
+                <option>Abu Abdullah</option>
+                <option>Emma Pagoto</option>
+                <option>Lemar Brown</option>
+                <option>Kai Nguyen</option>
+                <option>Lisa Johnson</option>
+                <option>Alex Smith</option>
+                <option>Amelia Paul</option>
+            </select>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="date">Date</label>
+                <input type="date" class="form-control" id="date">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="time">Time</label>
+                <input type="time" class="form-control" id="time">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>What service(s) are you looking to get done?</label>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="service1">
+                        <label class="form-check-label" for="service1">Screen Replacement (Laptop)</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="service2">
+                        <label class="form-check-label" for="service1">Virus Removal (Mac)</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="service3">
+                        <label class="form-check-label" for="service1">Ram Upgrade (16 GB)</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="service4">
+                        <label class="form-check-label" for="service4">Screen Replacement (Phone)</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="service5">
+                        <label class="form-check-label" for="service1">Virus Removal (Windows)</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="service6">
+                        <label class="form-check-label" for="service1">Ram Upgrade (32 GB)</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="notes">Notes</label>
+            <textarea class="form-control" id="notes" rows="3" placeholder="Give a brief explanation of the issue..."></textarea>
+        </div>
+        <a href="confirmation.html">
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </a>
+    </form>
+</div>
+
+<div class="contact-us" id="contact-us">
+    <div class="contact-info">
+        <h1>Contact Us</h2>
+            <div>
+                <p>
+                  <i class="bi bi-envelope" style="font-size: 30px; display: inline-block; vertical-align: middle;"></i>
+                  <span style="display: inline-block; vertical-align: middle; font-size: 16px;">Email us at:</span>
+                </p>
+                <p>
+                  <a href="mailto:info@OttawaComputers.com" style="color: black; text-decoration: none;">info@OttawaComputers.com</a>
+                </p>
+              </div>
+              <div>
+                <p>
+                  <i class="bi bi-telephone" style="font-size: 30px; display: inline-block; vertical-align: middle;"></i>
+                  <span style="display: inline-block; vertical-align: middle;">Call us at:</span>
+                </p>
+                <p>
+                  <a href="tel:+11234567890" style="color: black; text-decoration: none;">+1 (123) 456-7890</a>
+                </p>
+              </div>
+        <div>
+            <p>
+              <i class="bi bi-geo-alt" style="font-size: 30px; display: inline-block; vertical-align: middle;"></i>
+              <span style="display: inline-block; vertical-align: middle;">Hours &amp; Location</span>
+            </p>
+            <p>150 Louis-Pasteur, Ottawa, ON</p>
+            <p>Mon - Fri: 9am - 6pm</p>
+            <p>Saturday: 9am - 5pm</p>
+            <p>Sunday: 10am - 5pm</p>
+          </div>
+          
+    </div>
+    <div class="mapouter">
+        <div class="gmap_canvas">
+            <iframe width="800" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=150%20louis-pasteur&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+        </div>
+    </div>
+</div>
+
+</body>
+<footer>
+    <div class="footer-content">
+        <img src="./assets/logo.svg" alt="Logo">
+        <div class="footer-links">
+            <a href="#services">Services</a>
+            <a href="#our-story">About Us</a>
+            <a href="#our-team">Our Experts</a>
+            <a href="#booking">Book An Appointment</a>
+            <a href="#contact-us">Contact</a>
+        </div>
+        <hr>
+        <div class="footer-bottom">
+            <p>2023. Ottawa Computers. All Rights Reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Settings</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="booking.js"></script>
+
+
+</html>
